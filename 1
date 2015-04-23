@@ -1,0 +1,140 @@
+#include "ID3.H"
+
+int data[][4]= { { 2, M, P, N },
+{1, M, C , Y },
+{4, F, AS , Y },
+{2, M, PB, N },
+{1, M, AS , Y },
+{1, M, PB , N },
+{1, F, AS, N },
+{1 ,F, C, Y } ,
+{4 ,F, P, N } ,
+{2 ,M, C, Y } ,
+{2 ,F, P, Y } ,
+{2 ,F, AS, N}
+};
+int main(int argc,char * argv[])
+{
+  vector<Attribute> attributeList;
+
+  attributeList.push_back(Age); 
+  //attributeList.push_back(Sex); 
+  //attributeList.push_back(Breed); 
+  double overallEnt=calculateOverAllEntropy();
+  while(1)
+  {
+    vector<Attribute>::const_iterator it=attributeList.begin();
+    Attribute attributeWithMaxGain;
+    double maxGain=0;
+    while(it!=attributeList.end())
+    {
+      double cGain = calculateGain(*(it),overallEnt); 
+      if(cGain >= maxGain)
+      {
+        attributeWithMaxGain = *(it);
+        maxGain=cGain; 
+        cout<<"Attribute Gain " << maxGain<<endl;
+      }
+      it++;  
+    }
+    break;
+    //createID3Tree(Attribute at);
+  }
+
+
+  return 0;
+}
+
+double calculateOverAllEntropy(void)
+{
+  int yVal =0;
+  int nVal = 0;
+  for(int i =0;i<12;i++)
+  {
+      if(data[i][3] == Y)
+         yVal++;
+      else if (data[i][3] == N)
+         nVal++;
+  }
+  double x = yVal+nVal;
+  double entropy = (-(yVal/x) *log2 (yVal/x) ) 
+                     + (-(nVal/x) *log2 (nVal/x));
+  cout<<"Num of Y " << yVal <<" number of N "<< nVal<< " Entropy "<<entropy<<endl;
+ 
+  return entropy;
+  
+}
+
+double calculateGain(Attribute at,double ent)
+{
+
+   double gain=ent;
+   switch(at)
+   {
+     case Age:
+          {
+          int ageYNDistribution[3][2]={{0,0},
+                                       {0,0},
+                                       {0,0}};
+          double entropies [3]={0,0,0};
+          int ageValues[3]={1,2,4};
+          for(int i=0;i<3;i++)
+          {
+            int numY=0;
+            int numN=0;
+            findDistribution(at,ageValues[i],numY,numN);
+	    ageYNDistribution[i][0]=numY;
+            ageYNDistribution[i][1]=numN;
+          }
+          int x = 12;   
+          double sumEnt=0;
+          for (int i=0;i<3;i++)
+          {
+             entropies[i]=calculateEntropy(ageYNDistribution[i][0],ageYNDistribution[i][1]);
+             sumEnt +=( (ageYNDistribution[i][0]+ageYNDistribution[i][1])/x) * entropies[i];
+          }
+          gain = gain-sumEnt;
+          cout<<"Gain " << gain<<endl;
+          }
+          break;
+     case Sex:
+          break;
+     case Breed:
+          break;
+     default:
+          break;
+   }
+   cout<<"Attribute Gain " << gain<<endl;
+   return gain;
+}
+double calculateEntropy(int yVal,int nVal)
+{
+  double x = yVal+nVal;
+  double entropy =0;
+  if(yVal==0)
+     entropy = (-(nVal/x) *log2 (nVal/x));
+                
+  else if (nVal ==0)
+     entropy = (-(yVal/x) *log2 (yVal/x));
+  else
+     entropy = (-(yVal/x) *log2 (yVal/x) ) 
+                     + (-(nVal/x) *log2 (nVal/x));
+  cout<<"Num of Y " << yVal <<" number of N "<< nVal<< " Entropy "<<entropy<<endl;
+  return entropy;
+}
+void findDistribution(Attribute at,int val,int & numY,int &numN)
+{
+  int attributeToCheck=at;
+  for(int i =0;i<12;i++)
+  {
+      if((data[i][attributeToCheck] == val ) &&
+         (data[i][3] == Y ) )
+         numY++;
+      else if((data[i][attributeToCheck] == val ) &&
+              (data[i][3] == N ) )
+         numN++;
+  }
+  cout<<"Num of Y " << numY <<" number of N "<< numN<<endl;
+ 
+
+}

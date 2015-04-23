@@ -1,0 +1,223 @@
+ent0.970951sumEnt0.404563
+ent0.970951sumEnt0.809125
+ent1sumEnt0.975792
+Overall entropy 0.975792Gain is 0.0242078
+ NOT Leaf type
+ent1sumEnt0.5
+ent1sumEnt1
+Overall entropy 1Gain is 0
+ NOT Leaf type
+ent0.918296sumEnt0.229574
+ent0sumEnt0.229574
+ent1sumEnt0.562907
+ent0sumEnt0.562907
+Overall entropy 0.562907Gain is 0.437093
+ NOT Leaf type
+Match at posn 10for attr 0
+Match at posn 11for attr 0
+Match at posn 12for attr 0
+Creating tree for sub-attribute of type0 for attribute Breed
+Mapped name Pomerian
+Data size is 3
+ent0sumEnt0
+ent1sumEnt0.666667
+ent0sumEnt0.666667
+Overall entropy 0.666667Gain is 0.251629
+ NOT Leaf type
+ent0sumEnt0
+ent1sumEnt0.666667
+Overall entropy 0.666667Gain is 0.251629
+ NOT Leaf type
+Max gain attribute is Sex
+Creating a node for typeSex
+Creating tree for sub-attribute of type0 for attribute Sex
+Mapped name Male
+Data size is 1
+ent0sumEnt0
+ent0sumEnt0
+ent0sumEnt0
+Overall entropy 0Gain is -nan
+Leaf type is NO
+Max gain attribute is 
+Create a leaf node of type No
+Creating tree for sub-attribute of type1 for attribute Sex
+Mapped name Female
+Data size is 2
+ent0sumEnt0
+ent0sumEnt0
+ent0sumEnt0
+Overall entropy 0Gain is 1
+ NOT Leaf type
+Max gain attribute is Age
+Creating a node for typeAge
+Creating tree for sub-attribute of type1 for attribute Age
+Mapped name 1 year old
+Data size is 0
+0 size 
+Creating tree for sub-attribute of type2 for attribute Age
+Mapped name 2 year old
+Data size is 1
+Leaf type is YES
+Max gain attribute is 
+Create a leaf node of type Yes
+Creating tree for sub-attribute of type4 for attribute Age
+Mapped name 4 year old
+Data size is 1
+Leaf type is NO
+Max gain attribute is 
+Create a leaf node of type No
+Match at posn 8for attr 1
+Match at posn 9for attr 1
+Creating tree for sub-attribute of type1 for attribute Breed
+Mapped name Pit Bull
+Data size is 2
+ent0sumEnt0
+ent0sumEnt0
+ent0sumEnt0
+Overall entropy 0Gain is -nan
+Leaf type is NO
+Max gain attribute is 
+Create a leaf node of type No
+Match at posn 4for attr 2
+Match at posn 5for attr 2
+Match at posn 6for attr 2
+Match at posn 7for attr 2
+Creating tree for sub-attribute of type2 for attribute Breed
+Mapped name American Shepher
+Data size is 4
+ent1sumEnt0.5
+ent0sumEnt0.5
+ent0sumEnt0.5
+Overall entropy 0.5Gain is 0.5
+ NOT Leaf type
+ent0sumEnt0
+ent0.918296sumEnt0.688722
+Overall entropy 0.688722Gain is 0.311278
+ NOT Leaf type
+Max gain attribute is Age
+Creating a node for typeAge
+Creating tree for sub-attribute of type1 for attribute Age
+Mapped name 1 year old
+Data size is 2
+ent0sumEnt0
+ent0sumEnt0
+Overall entropy 0Gain is 1
+ NOT Leaf type
+Max gain attribute is Sex
+Creating a node for typeSex
+Creating tree for sub-attribute of type0 for attribute Sex
+Mapped name Male
+Data size is 1
+Leaf type is YES
+Max gain attribute is 
+Create a leaf node of type Yes
+Creating tree for sub-attribute of type1 for attribute Sex
+Mapped name Female
+Data size is 1
+Leaf type is NO
+Max gain attribute is 
+Create a leaf node of type No
+Creating tree for sub-attribute of type2 for attribute Age
+Mapped name 2 year old
+Data size is 1
+ent0sumEnt0
+ent0sumEnt0
+Overall entropy 0Gain is -nan
+Leaf type is NO
+Max gain attribute is 
+Create a leaf node of type No
+Creating tree for sub-attribute of type4 for attribute Age
+Mapped name 4 year old
+Data size is 1
+ent0sumEnt0
+ent0sumEnt0
+Overall entropy 0Gain is -nan
+Leaf type is YES
+Max gain attribute is 
+Create a leaf node of type Yes
+Match at posn 1for attr 3
+Match at posn 2for attr 3
+Match at posn 3for attr 3
+Creating tree for sub-attribute of type3 for attribute Breed
+Mapped name Chihuahua
+Data size is 3
+ent0sumEnt0
+ent0sumEnt0
+ent0sumEnt0
+Overall entropy 0Gain is -nan
+Leaf type is YES
+Max gain attribute is 
+Create a leaf node of type Yes
+Node Details
+Attribute node::Breed
+Child label Pomerian
+Node Details
+Attribute node::Sex
+Child label Male
+Node Details
+Attribute node::No
+Child label Female
+Node Details
+Attribute node::Age
+Child label 2 year old
+Node Details
+Attribute node::Yes
+Child label 4 year old
+Node Details
+Attribute node::No
+Child label Pit Bull
+Node Details
+Attribute node::No
+Child label American Shepher
+Node Details
+Attribute node::Age
+Child label 1 year old
+Node Details
+Attribute node::Sex
+Child label Male
+Node Details
+Attribute node::Yes
+Child label Female
+Node Details
+Attribute node::No
+Child label 2 year old
+Node Details
+Attribute node::No
+Child label 4 year old
+Node Details
+Attribute node::Yes
+Child label Chihuahua
+Node Details
+Attribute node::Yes
+
+digraph G { 
+attr0 [shape="rectangle", label=Breed]
+attr1 [shape="rectangle", label=Sex]
+attr0 -> attr1 [label ="Pomerian"]
+leaf1 [shape="plaintext", label=No]
+attr1 -> leaf1 [label ="Male"]
+attr2 [shape="rectangle", label=Age]
+attr1 -> attr2 [label ="Female"]
+leaf2 [shape="plaintext", label=Yes]
+attr2 -> leaf2 [label ="2 year old"]
+leaf3 [shape="plaintext", label=No]
+attr2 -> leaf3 [label ="4 year old"]
+leaf4 [shape="plaintext", label=No]
+attr0 -> leaf4 [label ="Pit Bull"]
+attr3 [shape="rectangle", label=Age]
+attr0 -> attr3 [label ="American Shepher"]
+attr4 [shape="rectangle", label=Sex]
+attr3 -> attr4 [label ="1 year old"]
+leaf5 [shape="plaintext", label=Yes]
+attr4 -> leaf5 [label ="Male"]
+leaf6 [shape="plaintext", label=No]
+attr4 -> leaf6 [label ="Female"]
+leaf7 [shape="plaintext", label=No]
+attr3 -> leaf7 [label ="2 year old"]
+leaf8 [shape="plaintext", label=Yes]
+attr3 -> leaf8 [label ="4 year old"]
+leaf9 [shape="plaintext", label=Yes]
+attr0 -> leaf9 [label ="Chihuahua"]
+
+}
+
